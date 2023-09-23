@@ -26,7 +26,7 @@ const ExportControl = ({ targetRef }: ExportControlProps) => {
       const imgBlob = await toBlob(targetRef.current!, {
         pixelRatio: 2,
       })
-      const img = new ClipboardItem({ "image/png": imgBlob })
+      const img = new ClipboardItem({ "image/png": imgBlob! })
       navigator.clipboard.write([img])
 
       toast.remove(loading)
