@@ -51,7 +51,7 @@ const Main = () => {
         <div className={`h-3`}></div>
         <CodeEditor />
       </div>
-      <Card className="fixed bottom-16 py-6 px-8 mx-6 bg-neutral-900/90 backdrop-blur">
+      <Card className="rounded-xl border text-card-foreground shadow fixed bottom-16 py-6 px-8 mx-6 bg-neutral-900/90 backdrop-blur">
         <CardContent className="flex flex-wrap p-0 gap-6 items-center">
           <ThemesControl />
           <ExportControl targetRef={editorRef} />

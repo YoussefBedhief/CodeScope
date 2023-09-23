@@ -25,10 +25,10 @@ const ThemesControl = () => {
         <SelectTrigger className="w-40">
           <SelectValue placeholder="Select Theme" />
         </SelectTrigger>
-        <SelectContent className="dark">
+        <SelectContent className="dark text-white">
           {Object.entries(themes).map(([name, theme]) => (
             <SelectItem key={name} value={name}>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-2 text-white">
                 <div className={cn("h-4 w-4 rounded-full", theme.background)} />
                 <span className="capitalize">{name}</span>
               </div>
