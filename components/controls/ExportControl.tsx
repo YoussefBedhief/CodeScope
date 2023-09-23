@@ -41,8 +41,11 @@ const ExportControl = ({ targetRef }: ExportControlProps) => {
     try {
       const state = useCodeStores.getState()
       const queryParams = new URLSearchParams({
-        ...state,
         code: btoa(state.code),
+        title: state.title,
+        theme: state.theme,
+        language: state.language,
+        fontStyle: state.fontStyle,
       }).toString()
       navigator.clipboard.writeText(`${location.href}?${queryParams}`)
 
