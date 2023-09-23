@@ -1,6 +1,6 @@
 "use client"
 
-import { codeSnippets, fonts } from "@/lib/option"
+import { codeSnippets, fonts } from "@/option"
 import { cn } from "@/lib/utils"
 import React from "react"
 import Editor from "react-simple-code-editor"
@@ -11,8 +11,6 @@ import { useEffect } from "react"
 import dynamic from "next/dynamic"
 
 const CodeEditor = () => {
-  dynamic({ ssr: false })
-
   const store = useCodeStores()
 
   useEffect(() => {

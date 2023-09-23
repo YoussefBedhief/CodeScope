@@ -1,5 +1,5 @@
 "use client"
-import { fonts, themes } from "@/lib/option"
+import { fonts, themes } from "@/option"
 import { useCodeStores } from "@/store/code"
 import CodeEditor from "./CodeEditor"
 import { cn } from "@/lib/utils"
@@ -13,7 +13,6 @@ const Main = () => {
   const fontStyle = useCodeStores((state) => state.fontStyle)
   const showBg = useCodeStores((state) => state.showBg)
   const padding = useCodeStores((state) => state.padding)
-  console.log(themes[theme].background)
   const editorRef = useRef(null)
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search)
@@ -49,6 +48,7 @@ const Main = () => {
         style={{ padding }}
         ref={editorRef}
       >
+        <div className={`h-3`}></div>
         <CodeEditor />
       </div>
       <Card className="fixed bottom-16 py-6 px-8 mx-6 bg-neutral-900/90 backdrop-blur">

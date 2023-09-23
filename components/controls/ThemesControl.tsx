@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select"
-import { themes } from "@/lib/option"
+import { themes } from "@/option"
 import { cn } from "@/lib/utils"
 
 const ThemesControl = () => {
