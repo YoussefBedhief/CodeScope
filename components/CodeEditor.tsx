@@ -80,6 +80,9 @@ const CodeEditor = () => {
           style={{
             fontStyle: fonts[store.fontStyle].name,
             fontSize: store.fontSize,
+            borderColor: "transparent",
+            outlineColor: "transparent",
+            outline: "none",
           }}
         />
       </div>
