@@ -12,15 +12,18 @@ import toast from "react-hot-toast"
 import { useCodeStores } from "@/store/code"
 import { toBlob, toPng, toSvg } from "html-to-image"
 import { useHotkeys } from "react-hotkeys-hook"
-
-const ExportControl = ({ targetRef }) => {
+import { RefObject } from "react"
+interface ExportControlProps {
+  targetRef: RefObject<HTMLElement> // Remplacez 'any' par le type approprié si possible
+}
+const ExportControl = ({ targetRef }: ExportControlProps) => {
   const title: string = useCodeStores((state) => state.title)
 
   const copyImage = async () => {
     const loading = toast.loading("Copying...")
 
     try {
-      const imgBlob = await toBlob(targetRef.current, {
+      const imgBlob = await toBlob(targetRef.current!, {
         pixelRatio: 2,
       })
       const img = new ClipboardItem({ "image/png": imgBlob })
@@ -56,11 +59,11 @@ const ExportControl = ({ targetRef }) => {
       let imgUrl, filename
       switch (format) {
         case "PNG":
-          imgUrl = await toPng(targetRef.current, { pixelRatio: 2 })
+          imgUrl = await toPng(targetRef.current!, { pixelRatio: 2 })
           filename = `${name}.png`
           break
         case "SVG":
-          imgUrl = await toSvg(targetRef.current, { pixelRatio: 2 })
+          imgUrl = await toSvg(targetRef.current!, { pixelRatio: 2 })
           filename = `${name}.svg`
           break
 
