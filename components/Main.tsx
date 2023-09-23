@@ -44,7 +44,9 @@ const Main = () => {
       <div
         className={cn(
           "overflow-hidden mb-2 transition-all ease-out",
-          showBg ? themes[theme].background : "ring ring-neutral-900"
+          showBg
+            ? "bg-gradient-to-br from-fuchsia-500 via-red-600 to-orange-400"
+            : "ring ring-neutral-900"
         )}
         style={{ padding }}
         ref={editorRef}
