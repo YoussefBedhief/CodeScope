@@ -4,7 +4,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/Select"
+} from "../ui/select"
 import { MagicWandIcon } from "@radix-ui/react-icons"
 import { useCodeStores } from "@/store/code"
 import { languages } from "@/option"
