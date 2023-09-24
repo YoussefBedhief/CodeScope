@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select"
+} from "../ui/Select"
 import { themes } from "@/option"
 import { cn } from "@/lib/utils"
 

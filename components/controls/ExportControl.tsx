@@ -95,7 +95,7 @@ const ExportControl = ({ targetRef }: ExportControlProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button>
+        <Button variant={"ghost"} className="bg-white text-black">
           <Share2Icon className="mr-2" />
           Export
         </Button>

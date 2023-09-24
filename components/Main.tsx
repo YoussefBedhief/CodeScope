@@ -7,6 +7,14 @@ import { useEffect, useRef } from "react"
 import { Card, CardContent } from "./ui/Card"
 import ExportControl from "./controls/ExportControl"
 import ThemesControl from "./controls/ThemesControl"
+import LanguageControl from "./controls/LanguageControl"
+import FontControl from "./controls/FontControl"
+import FontSizeControl from "./controls/FontSizeControl"
+import PaddingControl from "./controls/PaddingControl"
+import BackgroundControl from "./controls/BagroundControl"
+import DarkModeControl from "./controls/DarkModeControl"
+import { Resizable } from "re-resizable"
+import { Separator } from "./ui/Separator"
 
 const Main = () => {
   const theme = useCodeStores((state) => state.theme)
@@ -29,7 +37,7 @@ const Main = () => {
     })
   }, [])
   return (
-    <main className="min-h-screen flex justify-center items-center bg-neutral-950 text-white">
+    <main className="min-h-screen flex justify-center bg-neutral-950 text-white">
       <link
         rel="stylesheet"
         href={themes[theme].theme}
@@ -40,20 +48,31 @@ const Main = () => {
         href={fonts[fontStyle]?.src}
         crossOrigin="anonymous"
       />
-      <div
-        className={cn(
-          "overflow-hidden mb-2 transition-all ease-out",
-          showBg ? themes[theme].background : "ring ring-neutral-900"
-        )}
-        style={{ padding }}
-        ref={editorRef}
+      <Resizable
+        enable={{ left: true, right: true }}
+        minWidth={padding * 2 + 400}
       >
-        <div className={`h-3`}></div>
-        <CodeEditor />
-      </div>
+        <div
+          className={cn(
+            "overflow-hidden mb-2 mt-20 transition-all ease-out",
+            showBg ? themes[theme].background : "ring ring-neutral-900"
+          )}
+          style={{ padding }}
+          ref={editorRef}
+        >
+          <CodeEditor />
+        </div>
+      </Resizable>
       <Card className="rounded-xl border text-card-foreground shadow fixed bottom-16 py-6 px-8 mx-6 bg-neutral-900/90 backdrop-blur">
-        <CardContent className="flex flex-wrap p-0 gap-6 items-center">
+        <CardContent className="flex flex-wrap p-0 gap-6 items-center text-white">
           <ThemesControl />
+          <LanguageControl />
+          <FontControl />
+          <FontSizeControl />
+          <PaddingControl />
+          <BackgroundControl />
+          <DarkModeControl />
+          <Separator orientation="vertical" color="gray" />
           <ExportControl targetRef={editorRef} />
         </CardContent>
       </Card>
